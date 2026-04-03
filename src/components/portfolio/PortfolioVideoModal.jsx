@@ -11,7 +11,7 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-80 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-80 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm max-w-full"
           onClick={onClose}
         >
           <motion.div
@@ -24,8 +24,6 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
               background: "var(--color-surface-dark)",
               borderColor: "var(--color-border-on-dark)",
               boxShadow: "var(--shadow-card-strong)",
-              maxWidth: "100%", // Ensure the modal does not exceed the screen width
-              width: "90vw", // Set a responsive width for smaller screens
             }}
             onClick={(event) => event.stopPropagation()}
           >
@@ -63,10 +61,7 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
                 >
                   {item.category}
                 </span>
-                <span
-                  className="text-xs font-bold uppercase tracking-[0.16em]"
-                  style={{ color: "var(--color-text-on-dark-muted)" }}
-                >
+                <span className="text-xs font-bold uppercase tracking-[0.16em]" style={{ color: "var(--color-text-on-dark-muted)" }}>
                   {item.year}
                 </span>
               </div>
@@ -78,10 +73,7 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
                 {item.title}
               </h3>
 
-              <p
-                className="mt-3 max-w-3xl text-sm leading-7 sm:text-base"
-                style={{ color: "var(--color-text-on-dark-muted)" }}
-              >
+              <p className="mt-3 max-w-3xl text-sm leading-7 sm:text-base" style={{ color: "var(--color-text-on-dark-muted)" }}>
                 {item.description}
               </p>
             </div>
