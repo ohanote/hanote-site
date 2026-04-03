@@ -13,7 +13,7 @@ export default function ContactSection() {
       <div className="absolute inset-0 bg-slate-950/85" />
 
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6 md:px-8">
-        <SectionTitle light>Solicite um Orçamento</SectionTitle>
+        <SectionTitle light>Vamos tirar sua ideia do papel</SectionTitle>
         <motion.p
           variants={fadeUp}
           initial="hidden"
@@ -21,7 +21,7 @@ export default function ContactSection() {
           viewport={{ once: true, amount: 0.5 }}
           className="mx-auto mt-5 max-w-3xl text-center text-sm text-slate-300 sm:mt-6 sm:text-base md:text-lg"
         >
-          Entre em contato e descubra como podemos alavancar sua empresa com vídeos de impacto.
+          Seu próximo projeto merece mais do que um vídeo bonito
         </motion.p>
 
         <motion.form

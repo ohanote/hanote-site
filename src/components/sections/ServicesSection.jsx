@@ -10,7 +10,7 @@ export default function ServicesSection() {
       id="servicos"
       className="scroll-mt-32 mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 md:px-8 lg:px-12"
     >
-      <SectionTitle>Nossos Serviços</SectionTitle>
+      <SectionTitle>O que podemos criar com você</SectionTitle>
       <motion.div
         variants={staggerContainer}
         initial="hidden"

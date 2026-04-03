@@ -8,7 +8,7 @@ export default function WhyChooseSection() {
   return (
     <section id="diferenciais" className="scroll-mt-32 border-y border-slate-200 bg-white/70">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 md:px-8 lg:px-12">
-        <SectionTitle>Por que Escolher a Ohanote?</SectionTitle>
+        <SectionTitle>Por que Escolhem a Ohanote?</SectionTitle>
         <motion.div
           variants={staggerContainer}
           initial="hidden"

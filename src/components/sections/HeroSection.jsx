@@ -41,22 +41,22 @@ export default function HeroSection() {
             variants={fadeUp}
             className="mb-6 inline-flex items-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-200 shadow-lg backdrop-blur md:text-sm"
           >
-            Produção de vídeos profissionais em Indaiatuba
+            Audiovisual para marcas, negócios e projetos
           </motion.div>
 
           <motion.h1
             variants={fadeUp}
             className="max-w-4xl text-3xl font-black leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
           >
-            Vídeos que <span className="text-amber-400">Vendem</span> e
-            <br className="hidden sm:block" /> Fazem sua Empresa Crescer
+            Filmes que elevam a <span className="text-amber-400">percepção</span>
+            <br className="hidden sm:block" />da sua <span className="text-amber-400">marca</span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
             className="mt-5 max-w-2xl text-base text-slate-200 sm:mt-6 sm:text-lg md:text-xl lg:text-2xl"
           >
-            Produção ágil, visual profissional e conteúdo pensado para gerar autoridade, alcance e conversão.
+            A Hanote transforma estratégia, estética e narrativa em vídeos que geram valor real para o seu negócio.
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row">
@@ -66,16 +66,16 @@ export default function HeroSection() {
               onClick={() => scrollToSection("orcamento")}
               className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl bg-lime-500 px-6 py-4 text-base font-extrabold text-white shadow-2xl shadow-lime-950/30 transition hover:bg-lime-400 sm:w-auto sm:px-8 sm:text-lg"
             >
-              Solicite um orçamento <ArrowRight className="h-4 w-4" />
+              Solicitar orçamento <ArrowRight className="h-4 w-4" />
             </motion.button>
 
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => scrollToSection("trabalhos")}
-              className="inline-flex w-full cursor-pointer items-center justify-center rounded-2xl border border-white/15 bg-white/10 px-6 py-4 text-base font-bold text-white backdrop-blur-md transition hover:bg-white/15 sm:w-auto sm:px-8 sm:text-lg"
+              className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-6 py-4 text-base font-bold text-white backdrop-blur-md transition hover:bg-white/15 sm:w-auto sm:px-8 sm:text-lg"
             >
-              Ver trabalhos
+              Ver portfolio <ArrowRight className="h-4 w-4" />
             </motion.button>
           </motion.div>
 

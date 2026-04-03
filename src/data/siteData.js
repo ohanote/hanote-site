@@ -12,36 +12,36 @@ export const services = [
   {
     icon: Smartphone,
     title: "Vídeos para Redes Sociais",
-    description: "Reels e conteúdos para engajar seu público.",
+    description: "Conteúdo pensado para prender atenção, fortalecer presença digital e manter sua marca relevante no dia a dia do público.",
   },
   {
     icon: Building2,
     title: "Vídeos Institucionais",
-    description: "Apresente sua empresa de forma profissional.",
+    description: "Filmes que apresentam sua empresa com clareza, autoridade e uma imagem à altura do que ela entrega.",
   },
   {
     icon: Video,
     title: "Filmagem de Eventos",
-    description: "Cobertura de eventos corporativos e sociais.",
+    description: "Cobertura com linguagem cinematográfica para transformar momentos importantes em materiais de divulgação, memória e posicionamento.",
   },
 ];
 
 export const reasons = [
   {
-    title: "Experiência no Mercado",
-    description: "Especialistas em vídeos de impacto.",
+    title: "Direção criativa com intenção",
+    description: "Cada projeto nasce com um objetivo claro: comunicar valor, gerar conexão e construir percepção.",
   },
   {
-    title: "Produção Rápida",
-    description: "Entrega ágil e eficiente.",
+    title: "Estética que fortalece a marca",
+    description: "A imagem não é só bonita. Ela precisa traduzir identidade, posicionamento e credibilidade.",
   },
   {
-    title: "Conteúdo que Converte",
-    description: "Vídeos focados em resultados.",
+    title: "Produção ágil, sem perder refinamento",
+    description: "Organização, ritmo e execução para entregar com eficiência e alto padrão visual.",
   },
   {
-    title: "Atendimento Personalizado",
-    description: "Soluções sob medida para sua empresa.",
+    title: "Narrativa pensada para resultado",
+    description: "Criamos peças que fazem a marca ser lembrada, percebida e desejada.",
   },
 ];
 
@@ -294,17 +294,17 @@ export const landingData = {
 export const testimonials = [
   {
     testimonial:
-      "A Ohanote transformou nossa presença digital com vídeos incríveis!",
+      "A Hanote conseguiu traduzir exatamente o posicionamento que queríamos passar. O vídeo elevou a percepção da nossa marca e melhorou nossa apresentação digital.",
     name: "Maria Silva",
   },
   {
     testimonial:
-      "Profissionalismo e criatividade em cada projeto. Recomendo muito!",
+      "Além da qualidade visual, o processo foi seguro e bem dirigido do começo ao fim.",
     name: "João Pereira",
   },
   {
     testimonial:
-      "A entrega foi rápida e o resultado superou nossas expectativas.",
+      "O material final não serviu só como registro; virou peça de comunicação para a marca.",
     name: "Ana Costa",
   },
 ];
