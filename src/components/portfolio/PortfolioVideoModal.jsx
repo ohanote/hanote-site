@@ -24,6 +24,8 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
               background: "var(--color-surface-dark)",
               borderColor: "var(--color-border-on-dark)",
               boxShadow: "var(--shadow-card-strong)",
+              maxWidth: "100%", // Ensure the modal does not exceed the screen width
+              width: "90vw", // Set a responsive width for smaller screens
             }}
             onClick={(event) => event.stopPropagation()}
           >
