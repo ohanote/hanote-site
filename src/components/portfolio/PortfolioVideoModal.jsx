@@ -63,7 +63,10 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
                 >
                   {item.category}
                 </span>
-                <span className="text-xs font-bold uppercase tracking-[0.16em]" style={{ color: "var(--color-text-on-dark-muted)" }}>
+                <span
+                  className="text-xs font-bold uppercase tracking-[0.16em]"
+                  style={{ color: "var(--color-text-on-dark-muted)" }}
+                >
                   {item.year}
                 </span>
               </div>
@@ -75,7 +78,10 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
                 {item.title}
               </h3>
 
-              <p className="mt-3 max-w-3xl text-sm leading-7 sm:text-base" style={{ color: "var(--color-text-on-dark-muted)" }}>
+              <p
+                className="mt-3 max-w-3xl text-sm leading-7 sm:text-base"
+                style={{ color: "var(--color-text-on-dark-muted)" }}
+              >
                 {item.description}
               </p>
             </div>
