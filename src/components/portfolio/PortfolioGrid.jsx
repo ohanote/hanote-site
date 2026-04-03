@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { portfolioCases } from "../../data/siteData";
 import PortfolioCaseCard from "./PortfolioCaseCard";
 import PortfolioVideoModal from "./PortfolioVideoModal";
+import { staggerContainer } from "../../utils/animations";
 
 export default function PortfolioGrid() {
   const [selectedVideo, setSelectedVideo] = useState(null);

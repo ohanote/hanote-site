@@ -68,6 +68,7 @@ export const portfolioCases = [
     youtubeId: "3DeJat7KTqI",
     youtubeUrl: "https://www.youtube.com/watch?v=3DeJat7KTqI",
     image: "https://img.youtube.com/vi/3DeJat7KTqI/maxresdefault.jpg",
+    videoType: "landscape",
     year: "2025",
     description:
       "Produção com linguagem cinematográfica para fortalecer presença digital e percepção premium da marca.",
@@ -79,6 +80,7 @@ export const portfolioCases = [
     youtubeId: "7BLDa-FZdc0",
     youtubeUrl: "https://www.youtube.com/watch?v=7BLDa-FZdc0",
     image: "https://img.youtube.com/vi/7BLDa-FZdc0/maxresdefault.jpg",
+    videoType: "landscape",
     year: "2025",
     description:
       "Cobertura dinâmica com edição ágil para divulgação pós-evento e materiais institucionais.",
@@ -90,6 +92,7 @@ export const portfolioCases = [
     youtubeId: "Y05EnEsAjOM",
     youtubeUrl: "https://www.youtube.com/watch?v=Y05EnEsAjOM",
     image: "https://img.youtube.com/vi/Y05EnEsAjOM/maxresdefault.jpg",
+    videoType: "landscape",
     year: "2025",
     description:
       "Produção com linguagem cinematográfica para fortalecer presença digital e percepção premium da marca.",
@@ -101,6 +104,7 @@ export const portfolioCases = [
     youtubeId: "aqz-KE-bpKQ",
     youtubeUrl: "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
     image: "https://img.youtube.com/vi/aqz-KE-bpKQ/maxresdefault.jpg",
+    videoType: "landscape",
     year: "2025",
     description:
       "Cobertura dinâmica com edição ágil para divulgação pós-evento e materiais institucionais.",
@@ -112,6 +116,7 @@ export const portfolioCases = [
     youtubeId: "dQw4w9WgXcQ",
     youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     image: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+    videoType: "landscape",
     year: "2025",
     description:
       "Produção com linguagem cinematográfica para fortalecer presença digital e percepção premium da marca.",
@@ -123,6 +128,7 @@ export const portfolioCases = [
     youtubeId: "aqz-KE-bpKQ",
     youtubeUrl: "https://www.youtube.com/watch?v=aqz-KE-bpKQ",
     image: "https://img.youtube.com/vi/aqz-KE-bpKQ/maxresdefault.jpg",
+    videoType: "landscape",
     year: "2025",
     description:
       "Cobertura dinâmica com edição ágil para divulgação pós-evento e materiais institucionais.",
@@ -286,7 +292,19 @@ export const landingData = {
 };
 
 export const testimonials = [
-  { testimonial: "A Ohanote transformou nossa presença digital com vídeos incríveis!", name: "Maria Silva" },
-  { testimonial: "Profissionalismo e criatividade em cada projeto. Recomendo muito!", name: "João Pereira" },
-  { testimonial: "A entrega foi rápida e o resultado superou nossas expectativas.", name: "Ana Costa" },
+  {
+    testimonial:
+      "A Ohanote transformou nossa presença digital com vídeos incríveis!",
+    name: "Maria Silva",
+  },
+  {
+    testimonial:
+      "Profissionalismo e criatividade em cada projeto. Recomendo muito!",
+    name: "João Pereira",
+  },
+  {
+    testimonial:
+      "A entrega foi rápida e o resultado superou nossas expectativas.",
+    name: "Ana Costa",
+  },
 ];

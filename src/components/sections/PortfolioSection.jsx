@@ -3,6 +3,8 @@ import SectionTitle from "../ui/SectionTitle";
 import PortfolioCard from "../ui/PortfolioCard";
 import { portfolio } from "../../data/siteData";
 import { staggerContainer } from "../../utils/animations";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 import { useState } from "react";
 import { portfolioCases } from "../../data/siteData";
@@ -42,6 +44,15 @@ export default function PortfolioSection() {
               />
             ))}
           </motion.div>
+        </div>
+
+        <div className="mt-8 flex justify-center sm:mt-10">
+          <Link
+            to="/portfolio"
+            className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-6 py-4 text-base font-extrabold text-white backdrop-blur-md transition hover:scale-[1.02] hover:bg-white/15"
+          >
+            Ver portfólio completo <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
 
