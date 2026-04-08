@@ -4,11 +4,12 @@ import { X } from "lucide-react";
 
 export default function PortfolioVideoModal({ item, isOpen, onClose }) {
   const modalRef = useRef(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
+  const [openedAsMobile, setOpenedAsMobile] = useState(false);
 
   useEffect(() => {
     const media = window.matchMedia("(max-width: 767px)");
-    const update = () => setIsMobile(media.matches);
+    const update = () => setIsMobileViewport(media.matches);
 
     update();
     media.addEventListener?.("change", update);
@@ -16,7 +17,15 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
   }, []);
 
   useEffect(() => {
-    if (!isOpen || !item || !isMobile) return;
+    if (isOpen) {
+      setOpenedAsMobile(window.matchMedia("(max-width: 767px)").matches);
+    } else {
+      setOpenedAsMobile(false);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen || !item || !openedAsMobile) return;
 
     const enterImmersiveMode = async () => {
       const target = modalRef.current;
@@ -40,7 +49,7 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
     };
 
     enterImmersiveMode();
-  }, [isMobile, isOpen, item]);
+  }, [openedAsMobile, isOpen, item]);
 
   const handleClose = async () => {
     try {
@@ -65,6 +74,7 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
   if (!item) return null;
 
   const isShort = item.videoType === "short";
+  const renderAsMobile = isOpen ? openedAsMobile : isMobileViewport;
 
   return (
     <AnimatePresence>
@@ -75,11 +85,11 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={`fixed inset-0 z-[80] bg-black ${
-            isMobile ? "p-0" : "flex items-center justify-center p-4 backdrop-blur-sm"
+            renderAsMobile ? "p-0" : "flex items-center justify-center p-4 backdrop-blur-sm"
           }`}
-          onClick={isMobile ? undefined : handleClose}
+          onClick={renderAsMobile ? undefined : handleClose}
         >
-          {isMobile ? (
+          {renderAsMobile ? (
             <div className="relative flex h-full w-full items-center justify-center bg-black">
               <button
                 type="button"
@@ -106,7 +116,7 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
                   title={item.title}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
-                  className={isShort ? "h-full w-full" : "aspect-video w-full"}
+                  className={isShort ? "h-full w-full border-0" : "aspect-video w-full border-0"}
                 />
               </div>
             </div>
@@ -143,7 +153,7 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
                   title={item.title}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
-                  className="h-full w-full"
+                  className="h-full w-full border-0"
                 />
               </div>
 
