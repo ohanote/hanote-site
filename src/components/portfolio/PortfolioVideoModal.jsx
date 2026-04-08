@@ -4,10 +4,13 @@ import { X } from "lucide-react";
 
 export default function PortfolioVideoModal({ item, isOpen, onClose }) {
   const modalRef = useRef(null);
+
   const [isMobileViewport, setIsMobileViewport] = useState(false);
   const [openedAsMobile, setOpenedAsMobile] = useState(false);
+
   const pushedHistoryRef = useRef(false);
-  const closingFromHistoryRef = useRef(false);
+  const suppressPopstateRef = useRef(false);
+  const closingRef = useRef(false);
 
   useEffect(() => {
     const media = window.matchMedia("(max-width: 767px)");
@@ -26,31 +29,72 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
     }
   }, [isOpen]);
 
+  const cleanupImmersiveMode = async () => {
+    try {
+      if (screen.orientation?.unlock) {
+        screen.orientation.unlock();
+      }
+    } catch {
+      // ignore
+    }
+
+    try {
+      if (document.fullscreenElement) {
+        await document.exitFullscreen();
+      }
+    } catch {
+      // ignore
+    }
+  };
+
+  const finalizeClose = async () => {
+    if (closingRef.current) return;
+    closingRef.current = true;
+
+    await cleanupImmersiveMode();
+    onClose();
+
+    setTimeout(() => {
+      closingRef.current = false;
+    }, 0);
+  };
+
+  const closeLikeX = async () => {
+    if (pushedHistoryRef.current) {
+      suppressPopstateRef.current = true;
+      window.history.back();
+      return;
+    }
+
+    await finalizeClose();
+  };
+
   useEffect(() => {
     if (!isOpen) return;
 
-    const modalState = {
-      ...(window.history.state || {}),
-      portfolioVideoModal: true,
-    };
-
-    window.history.pushState(modalState, "");
+    window.history.pushState(
+      { ...(window.history.state || {}), portfolioModal: true },
+      ""
+    );
     pushedHistoryRef.current = true;
 
     const handlePopState = async () => {
-      closingFromHistoryRef.current = true;
-      await cleanupImmersiveMode();
-      onClose();
+      if (suppressPopstateRef.current) {
+        suppressPopstateRef.current = false;
+      }
+
+      pushedHistoryRef.current = false;
+      await finalizeClose();
     };
 
     window.addEventListener("popstate", handlePopState);
 
     return () => {
       window.removeEventListener("popstate", handlePopState);
-      closingFromHistoryRef.current = false;
       pushedHistoryRef.current = false;
+      suppressPopstateRef.current = false;
     };
-  }, [isOpen, onClose]);
+  }, [isOpen]);
 
   useEffect(() => {
     if (!isOpen || !item || !openedAsMobile) return;
@@ -72,40 +116,31 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
           await screen.orientation.lock("portrait");
         }
       } catch {
-        // fallback: sem travar orientação
+        // ignore
       }
     };
 
     enterImmersiveMode();
   }, [openedAsMobile, isOpen, item]);
 
-  const cleanupImmersiveMode = async () => {
-    try {
-      if (screen.orientation?.unlock) {
-        screen.orientation.unlock();
-      }
-    } catch {
-      // ignore
-    }
+  useEffect(() => {
+    if (!isOpen || !openedAsMobile) return;
 
-    try {
-      if (document.fullscreenElement) {
-        await document.exitFullscreen();
-      }
-    } catch {
-      // ignore
-    }
-  };
+    const handleFullscreenChange = async () => {
+      const lostFullscreen = !document.fullscreenElement;
 
-  const handleClose = async () => {
-    if (pushedHistoryRef.current && !closingFromHistoryRef.current) {
-      window.history.back();
-      return;
-    }
+      if (!lostFullscreen) return;
+      if (closingRef.current) return;
 
-    await cleanupImmersiveMode();
-    onClose();
-  };
+      // Se o usuário apertou "voltar" e o navegador apenas saiu do fullscreen,
+      // fechamos o modal usando a mesma lógica do botão X.
+      await closeLikeX();
+    };
+
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () =>
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
+  }, [isOpen, openedAsMobile]);
 
   if (!item) return null;
 
@@ -131,15 +166,17 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className={`fixed inset-0 z-[80] bg-black ${
-            renderAsMobile ? "p-0" : "flex items-center justify-center p-4 backdrop-blur-sm"
+            renderAsMobile
+              ? "p-0"
+              : "flex items-center justify-center p-4 backdrop-blur-sm"
           }`}
-          onClick={renderAsMobile ? undefined : handleClose}
+          onClick={renderAsMobile ? undefined : closeLikeX}
         >
           {renderAsMobile ? (
             <div className="relative flex h-full w-full items-center justify-center bg-black">
               <button
                 type="button"
-                onClick={handleClose}
+                onClick={closeLikeX}
                 className="absolute right-4 top-4 z-20 inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border text-white"
                 style={{
                   borderColor: "rgba(255,255,255,0.16)",
@@ -179,7 +216,7 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
             >
               <button
                 type="button"
-                onClick={handleClose}
+                onClick={closeLikeX}
                 className="absolute right-4 top-4 z-10 inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border text-white"
                 style={{
                   borderColor: "rgba(255,255,255,0.16)",
