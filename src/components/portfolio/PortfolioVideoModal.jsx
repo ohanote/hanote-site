@@ -6,6 +6,8 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
   const modalRef = useRef(null);
   const [isMobileViewport, setIsMobileViewport] = useState(false);
   const [openedAsMobile, setOpenedAsMobile] = useState(false);
+  const pushedHistoryRef = useRef(false);
+  const closingFromHistoryRef = useRef(false);
 
   useEffect(() => {
     const media = window.matchMedia("(max-width: 767px)");
@@ -23,6 +25,32 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
       setOpenedAsMobile(false);
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const modalState = {
+      ...(window.history.state || {}),
+      portfolioVideoModal: true,
+    };
+
+    window.history.pushState(modalState, "");
+    pushedHistoryRef.current = true;
+
+    const handlePopState = async () => {
+      closingFromHistoryRef.current = true;
+      await cleanupImmersiveMode();
+      onClose();
+    };
+
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+      closingFromHistoryRef.current = false;
+      pushedHistoryRef.current = false;
+    };
+  }, [isOpen, onClose]);
 
   useEffect(() => {
     if (!isOpen || !item || !openedAsMobile) return;
@@ -44,14 +72,14 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
           await screen.orientation.lock("portrait");
         }
       } catch {
-        // fallback: mantém o vídeo sem infos extras
+        // fallback: sem travar orientação
       }
     };
 
     enterImmersiveMode();
   }, [openedAsMobile, isOpen, item]);
 
-  const handleClose = async () => {
+  const cleanupImmersiveMode = async () => {
     try {
       if (screen.orientation?.unlock) {
         screen.orientation.unlock();
@@ -67,7 +95,15 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
     } catch {
       // ignore
     }
+  };
 
+  const handleClose = async () => {
+    if (pushedHistoryRef.current && !closingFromHistoryRef.current) {
+      window.history.back();
+      return;
+    }
+
+    await cleanupImmersiveMode();
     onClose();
   };
 
