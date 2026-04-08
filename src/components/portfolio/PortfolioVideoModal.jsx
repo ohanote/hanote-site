@@ -76,6 +76,16 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
   const isShort = item.videoType === "short";
   const renderAsMobile = isOpen ? openedAsMobile : isMobileViewport;
 
+  const mobilePlayerStyle = isShort
+    ? {
+        width: "min(100dvw, calc(100dvh * 9 / 16))",
+        aspectRatio: "9 / 16",
+      }
+    : {
+        width: "min(100dvw, calc(100dvh * 16 / 9))",
+        aspectRatio: "16 / 9",
+      };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -105,18 +115,15 @@ export default function PortfolioVideoModal({ item, isOpen, onClose }) {
               </button>
 
               <div
-                className={`bg-black ${
-                  isShort
-                    ? "aspect-[9/16] h-full max-h-screen w-auto max-w-full"
-                    : "flex h-full w-full items-center justify-center"
-                }`}
+                className="max-h-[100dvh] max-w-[100dvw] bg-black"
+                style={mobilePlayerStyle}
               >
                 <iframe
                   src={`https://www.youtube.com/embed/${item.youtubeId}?autoplay=1&rel=0&playsinline=1`}
                   title={item.title}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
-                  className={isShort ? "h-full w-full border-0" : "aspect-video w-full border-0"}
+                  className="h-full w-full border-0"
                 />
               </div>
             </div>
