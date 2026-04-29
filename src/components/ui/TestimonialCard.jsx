@@ -16,7 +16,7 @@ export default function TestimonialCard({ testimonial, name }) {
           whileHover={{ scale: 1.05 }}
           src="/images/testimonial.jpg"
           alt="Cliente satisfeita"
-          className="h-20 w-20 rounded-full object-cover shadow-lg sm:h-24 sm:w-24"
+          className="h-20 w-20 rounded-full object-cover shadow-lg sm:h-24 sm:w-24 hidden"
         />
 
         <div>

@@ -11,7 +11,7 @@ export default function PortfolioCaseCard({ item, onOpen }) {
       whileHover={{ y: -8 }}
       whileTap={{ scale: 0.98 }}
       transition={{ duration: 0.25 }}
-      className="group block w-full overflow-hidden rounded-xl border text-left"
+      className="group block w-full overflow-hidden rounded-xl border text-left cursor-pointer"
       style={{
         background: "var(--color-surface)",
         borderColor: "var(--color-border)",

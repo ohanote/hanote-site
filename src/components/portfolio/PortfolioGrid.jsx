@@ -19,19 +19,28 @@ export default function PortfolioGrid() {
             <span
               className="mb-4 inline-flex items-center rounded-full px-3 py-1 text-xs font-bold uppercase tracking-[0.16em]"
               style={{
-                background: "color-mix(in srgb, var(--color-primary) 14%, white)",
+                background:
+                  "color-mix(in srgb, var(--color-primary) 14%, white)",
                 color: "var(--color-primary)",
               }}
             >
               Seleção de Cases
             </span>
 
-            <h2 className="site-display text-3xl font-black sm:text-4xl lg:text-5xl" style={{ color: "var(--color-title)" }}>
+            <h2
+              className="site-display text-3xl font-black sm:text-4xl lg:text-5xl"
+              style={{ color: "var(--color-title)" }}
+            >
               Trabalhos pensados para gerar presença e percepção de valor.
             </h2>
 
-            <p className="mt-5 max-w-2xl text-base leading-7 sm:text-lg" style={{ color: "var(--color-text-muted)" }}>
-              Uma página de portfólio com estética limpa, foco visual nas capas e hierarquia semelhante a referências premium, sem perder a identidade da Ohanote.
+            <p
+              className="mt-5 max-w-2xl text-base leading-7 sm:text-lg"
+              style={{ color: "var(--color-text-muted)" }}
+            >
+              Uma página de portfólio com estética limpa, foco visual nas capas
+              e hierarquia semelhante a referências premium, sem perder a
+              identidade da Ohanote.
             </p>
           </div>
 
@@ -40,14 +49,18 @@ export default function PortfolioGrid() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            className="grid gap-6 md:grid-cols-2 xl:grid-cols-3 cursor-pointer"
+            className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
           >
             {portfolioCases.map((item) => (
-              <PortfolioCaseCard key={item.id} item={item} onOpen={handleOpen} />
+              <PortfolioCaseCard
+                key={item.id}
+                item={item}
+                onOpen={handleOpen}
+              />
             ))}
           </motion.div>
 
-                    <motion.div
+          <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
@@ -55,7 +68,11 @@ export default function PortfolioGrid() {
             className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
           >
             {portfolioCases.map((item) => (
-              <PortfolioCaseCard key={item.id} item={item} onOpen={handleOpen} />
+              <PortfolioCaseCard
+                key={item.id}
+                item={item}
+                onOpen={handleOpen}
+              />
             ))}
           </motion.div>
         </div>

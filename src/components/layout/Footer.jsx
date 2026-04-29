@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { fadeIn } from "../../utils/animations";
 
 export default function Footer() {
   return (
     <motion.footer
-      variants={fadeIn}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.7 }}
@@ -24,8 +22,8 @@ export default function Footer() {
 
         <address className="not-italic">
           <div className="flex flex-col gap-3 text-slate-300">
-            <a href="tel:+5519999999999" className="inline-flex items-center gap-2 hover:text-white">
-              <Phone className="h-4 w-4 text-lime-400" /> (19) 99999-9999
+            <a href="https://wa.me/5519991845153" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-white">
+              <Phone className="h-4 w-4 text-lime-400" /> (19) 99184-5153
             </a>
 
             <a href="mailto:contato@hanote.com.br" className="inline-flex items-center gap-2 hover:text-white">

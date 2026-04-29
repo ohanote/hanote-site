@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import Logo from "/images/SVG/logo-hanote.svg";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,13 +18,21 @@ export default function Header() {
   const closeMenu = () => setMobileMenuOpen(false);
 
   return (
-    <motion.header initial={false} animate={{ y: 0 }} className="fixed inset-x-0 top-0 z-50">
+    <motion.header
+      initial={false}
+      animate={{ y: 0 }}
+      className="fixed inset-x-0 top-0 z-50"
+    >
       <div className="mx-auto max-w-7xl px-4 pt-4 sm:px-6 md:px-8 lg:px-12">
         <motion.div
           initial={false}
           animate={{
-            backgroundColor: isScrolled ? "rgba(2, 6, 23, 0.92)" : "rgba(2, 6, 23, 0.75)",
-            borderColor: isScrolled ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.08)",
+            backgroundColor: isScrolled
+              ? "rgba(2, 6, 23, 0.92)"
+              : "rgba(2, 6, 23, 0.75)",
+            borderColor: isScrolled
+              ? "rgba(255,255,255,0.12)"
+              : "rgba(255,255,255,0.08)",
             paddingTop: isScrolled ? 10 : 12,
             paddingBottom: isScrolled ? 10 : 12,
             boxShadow: isScrolled
@@ -38,25 +47,37 @@ export default function Header() {
             <Link
               to="/"
               aria-label="Ir para a home da Hanote"
-              className="flex items-center gap-2 text-left"
+              className="flex items-center"
             >
-              <span className="text-2xl font-black tracking-tight sm:text-3xl">
-                Han<span className="text-amber-400">ote</span>
-              </span>
-              <span className="text-xl font-black text-cyan-400 sm:text-2xl">›</span>
+              <img src={Logo} alt="Logo Hanote" className="h-6 w-auto" />
             </Link>
 
-            <nav aria-label="Principal" className="hidden items-center gap-6 lg:flex">
-              <a href="/#servicos" className="text-sm font-semibold text-slate-200 transition hover:text-white">
+            <nav
+              aria-label="Principal"
+              className="hidden items-center gap-6 lg:flex"
+            >
+              <a
+                href="/#servicos"
+                className="text-sm font-semibold text-slate-200 transition hover:text-white"
+              >
                 Serviços
               </a>
-              <a href="/#diferenciais" className="text-sm font-semibold text-slate-200 transition hover:text-white">
+              <a
+                href="/#diferenciais"
+                className="text-sm font-semibold text-slate-200 transition hover:text-white"
+              >
                 Diferenciais
               </a>
-              <Link to="/portfolio" className="text-sm font-semibold text-slate-200 transition hover:text-white">
+              <Link
+                to="/portfolio"
+                className="text-sm font-semibold text-slate-200 transition hover:text-white"
+              >
                 Portfólio
               </Link>
-              <a href="/#depoimentos" className="text-sm font-semibold text-slate-200 transition hover:text-white">
+              <a
+                href="/#depoimentos"
+                className="text-sm font-semibold text-slate-200 transition hover:text-white"
+              >
                 Depoimentos
               </a>
               <a
@@ -73,7 +94,11 @@ export default function Header() {
               className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition hover:bg-white/10 lg:hidden"
               aria-label="Abrir menu"
             >
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {mobileMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </motion.button>
           </div>
 

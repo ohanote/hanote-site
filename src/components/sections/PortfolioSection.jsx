@@ -26,9 +26,10 @@ export default function PortfolioSection() {
           <SectionTitle light>Veja nossos trabalhos</SectionTitle>
 
           <p className="mx-auto mt-6 max-w-3xl text-center text-sm leading-7 text-slate-300 sm:text-base sm:leading-8">
-            Conheça produções da Hanote para marcas, empresas, eventos e campanhas.
-            Nosso portfólio reúne vídeos institucionais, reels, coberturas e peças
-            audiovisuais pensadas para fortalecer posicionamento e percepção de valor.
+            Conheça produções da Hanote para marcas, empresas, eventos e
+            campanhas. Nosso portfólio reúne vídeos institucionais, reels,
+            coberturas e peças audiovisuais pensadas para fortalecer
+            posicionamento e percepção de valor.
           </p>
 
           <motion.div
@@ -39,18 +40,27 @@ export default function PortfolioSection() {
             className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3"
           >
             {portfolioCases.slice(0, 3).map((item) => (
-              <PortfolioCaseCard key={item.id} item={item} onOpen={handleOpen} />
+              <PortfolioCaseCard
+                key={item.id}
+                item={item}
+                onOpen={handleOpen}
+              />
             ))}
           </motion.div>
 
-          <div className="mt-8 flex justify-center sm:mt-10">
-            <Link
-              to="/portfolio"
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-6 py-4 text-base font-extrabold text-white backdrop-blur-md transition hover:scale-[1.02] hover:bg-white/15"
-            >
-              Ver portfólio completo <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
+          <motion.div
+            className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row justify-center"
+          >
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+              <Link
+                to="/portfolio"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-[#009df5]/40 bg-[#0b2239] px-6 py-4 text-base font-bold text-[#f3f5f7] transition hover:border-[#009df5] hover:bg-[#0b2239]/80 hover:shadow-lg hover:shadow-[#009df5]/20 sm:w-auto sm:px-8 sm:text-lg"
+              >
+                <span className="text-white">Ver portfolio</span>{" "}
+                <ArrowRight className="h-4 w-4 text-white" />
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

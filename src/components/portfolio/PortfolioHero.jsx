@@ -43,7 +43,7 @@ export default function PortfolioHero() {
             className="mt-6 max-w-2xl text-base leading-7 sm:text-lg sm:leading-8"
             style={{ color: "var(--color-text-on-dark-muted)" }}
           >
-            Uma seleção de trabalhos da Ohanote com direção visual forte, acabamento premium e foco em impacto de marca.
+            Uma seleção de trabalhos da Hanote com direção visual forte, acabamento premium e foco em impacto de marca.
           </motion.p>
         </motion.div>
       </div>

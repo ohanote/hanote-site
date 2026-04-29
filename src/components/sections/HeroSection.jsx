@@ -46,7 +46,8 @@ export default function HeroSection() {
             variants={fadeUp}
             className="max-w-4xl text-3xl font-black leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
           >
-            Filmes que elevam a <span className="text-amber-400">percepção</span>
+            Filmes que elevam a{" "}
+            <span className="text-amber-400">percepção</span>
             <br className="hidden sm:block" />
             da sua <span className="text-amber-400">marca</span>
           </motion.h1>
@@ -55,7 +56,8 @@ export default function HeroSection() {
             variants={fadeUp}
             className="mt-5 max-w-2xl text-base text-slate-200 sm:mt-6 sm:text-lg md:text-xl lg:text-2xl"
           >
-            A Hanote transforma estratégia, estética e narrativa em vídeos que geram valor real para o seu negócio.
+            A Hanote transforma estratégia, estética e narrativa em vídeos que
+            geram valor real para o seu negócio.
           </motion.p>
 
           <motion.div
@@ -74,9 +76,9 @@ export default function HeroSection() {
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
               <Link
                 to="/portfolio"
-                className="inline-flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/10 px-6 py-4 text-base font-bold text-white backdrop-blur-md transition hover:bg-white/15 sm:w-auto sm:px-8 sm:text-lg"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-[#009df5]/40 bg-[#0b2239] px-6 py-4 text-base font-bold text-[#f3f5f7] transition hover:border-[#009df5] hover:bg-[#0b2239]/80 hover:shadow-lg hover:shadow-[#009df5]/20 sm:w-auto sm:px-8 sm:text-lg"
               >
-                Ver portfolio <ArrowRight className="h-4 w-4" />
+                <span className="text-white">Ver portfolio</span> <ArrowRight className="h-4 w-4 text-white" />
               </Link>
             </motion.div>
           </motion.div>
